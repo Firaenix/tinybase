@@ -5,7 +5,7 @@ pub enum TinyBaseError {
     #[error("sled error")]
     Sled(#[from] sled::Error),
     #[error("serializer error")]
-    Serializer(#[from] bincode::Error),
+    Serializer(#[from] postcard::Error),
     #[error("record failed to match unique constraint")]
     Exists { constraint: String, id: u64 },
     #[error("a condition check was not met")]
